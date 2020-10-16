@@ -71,23 +71,9 @@
     <!-- Page Content -->
     <div class="container h-100" style="height:100%">
         <div class="row text-center">
-            <div class="col-lg-6">
+            <div class="col">
                 <div class="row">
-                    <input id="loanAmount" type="text" />
-                </div>
-                <div class="row">
-                    <input id="rateAmount" type="text" />
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <h1>Your Monthly Payments</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <canvas id="myChart" width="400px" height="150px"></canvas>
-                <div class="row">
-                    <div class="col-md-6 mx-auto calculate-form">
+                    <div class="col mx-auto calculate-form">
                         <div class="card card-body text-center mt-5">
                             <h1 class="heading display-5 pb-3">Loan Calculator</h1>
                             <form id="loan-form">
@@ -131,7 +117,7 @@
                                            class="btn btn-dark btn-block" />
                                 </div>
                             </form>
-                            
+
                             <!-- Results -->
                             <div id="result">
                                 <h5>Results</h5>
@@ -172,6 +158,15 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="col">
+                <h1>Your Monthly Payments</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <canvas id="myChart" width="400px" height="150px"></canvas>
+                
             </div>
         </div>
     </div>
