@@ -74,6 +74,8 @@
     <Content Include="Scripts\Custom.js" />
     <Content Include="Scripts\jquery.slim.js" />
     <Content Include="Web.config" />
+    <Content Include="Content\Custom %28Josh%29.css" />
+    <Content Include="Scripts\Custom %28Josh%29.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -115,6 +117,11 @@
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
+    <MonoDevelop>
+      <Properties>
+        <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
+      </Properties>
+    </MonoDevelop>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
