@@ -75,7 +75,7 @@
             <div class="col mx-auto calculate-form">
                 <div class="card card-body text-center">
                     <h1 class="heading display-5 pb-3">Loan Calculator</h1>
-                    <form id="simple-interest" onsubmit="calculateResults(); return false">
+                    <form id="simple-interest" action="#" onsubmit="calculateResults(); return false;">
                         <div class="form-group">
                             <div class="input-group">
                                 <div class="input-group-prepend">
@@ -113,9 +113,8 @@
                         <div class="form-group">
                             <input type="submit"
                                    value="Calculate"
-                                   class="button btn btn-dark btn-block" />
-                            
-
+                                   class="btn btn-dark btn-block"
+                                   id="calculate"/>
                         </div>
                     </form>
                     <!-- Results -->

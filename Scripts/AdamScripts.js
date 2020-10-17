@@ -3,11 +3,11 @@ const button = document.querySelector('.button');
 //const loading = document.querySelector('.loader');
 const results = document.querySelector('.result');
 
-document.getElementById("simple-interest").addEventListener('submit', calculateResults())
+//document.getElementById("calculate").addEventListener('click', calculateResults())
 
 function calculateResults(e) {
 
-    document.getElementById("test").value = "test";
+    
     // ui elements
     const principal = document.querySelector('#principal');
     const rate = document.querySelector('#rate');
@@ -19,7 +19,7 @@ function calculateResults(e) {
     // formula variables
     const p = parseFloat(principal.value);
     const r = parseFloat(rate.value);
-    if (time > 0) {
+    if (years > 0) {
         const t = parseFloat(years.value);
     }
     else if (months > 0) {
@@ -29,7 +29,9 @@ function calculateResults(e) {
         showError("You did not enter any time")
     }
 
-
+    if (principal > 0) {
+        document.getElementById("test").innerHTML = "test";
+    }
     // calculate total interest
     const interest = (p * t * r / 100);
     // calculate monthly payment
