@@ -42,27 +42,29 @@
 
 
     paymentsPrincipal = [];
-    paymentsPrincipal.push(principal);
-    
-    for (let i = 0, paymentsInterest = []; i < months; i++) {
+    paymentsPrincipal.push(parseFloat(principal));
+    //let previousRemainingBalance = principal;
+    //let currentInterest = 0;
+    for (let i = 0, paymentsInterest = [], previousRemainingBalance = principal, currentInterest = 0; i < months; i++) {
 
-        let previousRemainingBalance = principal;
+        //let previousRemainingBalance = principal;
         
         
-        let currentInterest = 0;
+        //let currentInterest = 0;
         let rate = parseFloat(interest);
         let interestPayment = ((previousRemainingBalance * rate) / 1200);
-        let principalPayment = monthlyPayment - interestPayment;
-        let updateTotal = interestPayment + currentInterest;
-        currentInterest = updateTotal.toFixed(2);
+        let principalPayment = parseFloat(monthlyPayment) - parseFloat(interestPayment);
+        let updateTotal = parseFloat(interestPayment) + parseFloat(currentInterest);
+        currentInterest = parseFloat(updateTotal).toFixed(2);
         previousRemainingBalance = previousRemainingBalance - monthlyPayment;
-        paymentsInterest.push(interestPayment.toFixed(2));
-        paymentsPrincipal.push(principalPayment.toFixed(2));
+        paymentsInterest.push(parseFloat(interestPayment).toFixed(2));
+        paymentsPrincipal.push(parseFloat(principalPayment).toFixed(2));
+        let finalTotal = parseFloat(principal) + parseFloat(updateTotal).toFixed(2);
 
         document.getElementById("testInterestPayments").innerHTML = paymentsInterest.join(", $");
         document.getElementById("testPrincipalPayments").innerHTML = paymentsPrincipal.join(", $");
-        document.getElementById("finalInterest").innerHTML = updateTotal.toFixed(2);
-        document.getElementById("total").innerHTML = (principal + updateTotal.toFixed(2));
+        document.getElementById("finalInterest").innerHTML = parseFloat(updateTotal).toFixed(2);
+        document.getElementById("total").innerHTML = finalTotal;
     }
 
    
