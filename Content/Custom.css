@@ -45,14 +45,20 @@ input:focus, textarea:focus, select:focus {
 }
 
 
-input[type="button"] {
+input[type="button"], .btn-dark {
 /*    background-image: linear-gradient(to bottom left,#e14eca,#ba54f5,#e14eca);*/
     background-color: #e14eca;
 }
 
-input[type="button"]:hover {
+input[type="button"]:hover, .btn-dark:hover {
     background-image: linear-gradient(to bottom left,#e14eca,#ba54f5,#e14eca);
     background-color: #e14eca;
+}
+
+.custom-button {
+    border-radius: 20%;
+    background-color: #e14eca;
+    color:white;
 }
 
 /*.tag-wrap {
