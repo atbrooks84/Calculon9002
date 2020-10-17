@@ -82,7 +82,7 @@
                                 </div>
                                 <input type="number"
                                        class="form-control"
-                                       id="amount"
+                                       id="principal"
                                        placeholder="Loan Amount" />
                             </div>
                         </div>
@@ -132,10 +132,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Total Payment</span>
                                 </div>
-                                <input type="number"
-                                       class="form-control"
-                                       id="total-payment"
-                                       disabled />
+                                <input id="principal" type="text" placeholder="Loan Amount" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -176,21 +173,27 @@
                                 <button class="button" type="submit"></button>
                             </form>
 
-                            <div class="results hide">
-                                <div class="monthly-payment result-text">
-                                    <span>Monthly Payment</span>
-                                    <span id="payment"></span>
-                                </div>
-                                <div class="total-interest result-text">
-                                    <span>Total Interest</span>
-                                    <span id="interest"></span>
-                                </div>
-                                <div class="total-amount result-text">
-                                    <span>Total Amount</span>
-                                    <span id="total"></span>
+                            <div class="simple-interest">
+
+
+                                <div class="results hide">
+                                    <div class="monthly-payment">
+                                        <span>Monthly Payment</span>
+                                        <span id="payment"></span>
+                                    </div>
+                                    <div class="total-interest">
+                                        <span>Total Interest</span>
+                                        <span id="interest"></span>
+                                    </div>
+                                    <div class="total-amount">
+                                        <span>Total Amount</span>
+                                        <span id="total"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
             </div>
