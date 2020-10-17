@@ -16,6 +16,7 @@
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/Custom.css" rel="stylesheet" />
     <link href="Content/AdamStyles.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="/Images/favicon.png" />
 
 </head>
 
@@ -74,7 +75,7 @@
             <div class="col mx-auto calculate-form">
                 <div class="card card-body text-center">
                     <h1 class="heading display-5 pb-3">Loan Calculator</h1>
-                    <form id="loan-form">
+                    <form id="simple-interest" onsubmit="calculateResults(); return false">
                         <div class="form-group">
                             <div class="input-group">
                                 <div class="input-group-prepend">
@@ -112,7 +113,9 @@
                         <div class="form-group">
                             <input type="submit"
                                    value="Calculate"
-                                   class="btn btn-dark btn-block" />
+                                   class="button btn btn-dark btn-block" />
+                            
+
                         </div>
                     </form>
                     <!-- Results -->
@@ -123,7 +126,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Monthly Payment</span>
                                 </div>
-                                <p id="monthly-payment" class="result-text"></p>
+                                <p id="payment" class="result-text monthly-payment"></p>
                                 <p id="test" class="result-text"></p>
                             </div>
                         </div>
@@ -132,7 +135,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Total Payment</span>
                                 </div>
-                                <input id="principal" type="text" placeholder="Loan Amount" />
+                                <p id="total" class="result-text total-interest"></p>
                             </div>
                         </div>
                         <div class="form-group">
@@ -140,34 +143,31 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Total Interest</span>
                                 </div>
-                                <input type="number"
-                                       class="form-control"
-                                       id="total-interest"
-                                       disabled />
+                                <p id="interest" class="result-text total-amount"></p>
                             </div>
                         </div>
-                        <div class="simple-interest">
-                            <h2>Simple Interest Calculator</h2>
+                        <!--<div class="simple-interest">
+                            <h2>simple interest calculator</h2>
                             <form id="calculate">
                                 <label for="principal" class="principal">
                                     <span>
                                         <i class="fa fa-usd" aria-hidden="true"></i>
                                     </span>
-                                    <input id="principal" type="text" placeholder="Loan Amount" />
+                                    <input id="principal" type="text" placeholder="loan amount" />
                                 </label>
 
                                 <label for="rate" class="rate">
                                     <span class="percent">
                                         %
                                     </span>
-                                    <input id="rate" type="text" placeholder="Interest Rate" />
+                                    <input id="rate" type="text" placeholder="interest rate" />
                                 </label>
 
                                 <label for="time">
                                     <span>
                                         <i class="fa fa-clock-o" aria-hidden="true"></i>
                                     </span>
-                                    <input id="time" type="number" placeholder="Years to Repay" />
+                                    <input id="time" type="number" placeholder="years to repay" />
                                 </label>
 
                                 <button class="button" type="submit"></button>
@@ -191,7 +191,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
 
 
                     </div>
