@@ -16,19 +16,15 @@ h1 {
     min-height: 50%;
 }
 
-.top-buffer {
-
-}
-
 .area {
     background-color: #27293d;
     border-radius: 10px;
 }
 
-
 .form-control, input, .form-control:disabled {
     background-color: #27293d;
-    color:white;
+    color: white;
+    border-color: #e14eca;
 }
 
 .form-control:focus {
