@@ -15,12 +15,9 @@ h1 {
     min-height: 50%;
 }
 
-.card {
+.card, .results-column {
     background-color: #27293d;
-}
-
-.results-column {
-    background-color: #27293d;
+    border-radius: 10px;
 }
 
 
@@ -41,7 +38,9 @@ input:focus, textarea:focus, select:focus {
 }
 
 .input-group-text {
-    background-color: #27293d;
+    background-color: #e14eca;
+    border-color: #e14eca;
+    color: white;
 }
 
 
