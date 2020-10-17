@@ -1,11 +1,4 @@
-﻿const simpleInterest = document.querySelector('.simple-interest');
-const button = document.querySelector('.button');
-//const loading = document.querySelector('.loader');
-const results = document.querySelector('.result');
-
-//document.getElementById("calculate").addEventListener('click', calculateResults())
-
-function calculateResults(e) {
+﻿function calculateResults(e) {
 
 
     // ui elements
@@ -32,7 +25,7 @@ function calculateResults(e) {
 
     }
     else if (months > 0) {
-        months = years * 12;
+        
         let loanAmount = parseFloat(principal);
         let rate = parseFloat(interest);
         let monthlyPayment = (loanAmount) * (rate / 1200) / (1 - (1 + rate / 1200) ** (-months));
@@ -68,81 +61,33 @@ function calculateResults(e) {
    
 
 }
-    //let interestPayment = document.getElementById("interestPayment");
-    //if (interestPayment) {
-    //    interestPayment.onsubmit = function () {
-    //        this.interest.value = calculateInterestPayment(this.previousRemainingBalance.value, this.rateAmount.value);
-    //    }
 
 
-    //}
-    //    const monthlyPayment = document.getElementById("payment");
-    //    const totalInterest = document.querySelector('#interest');
-    //    const totalAmount = document.querySelector('#total');
-    //    // formula variables
-    //    const p = parseFloat(principal.value);
-    //    const r = parseFloat(rate.value);
-    //    if (years > 0) {
-    //        const t = parseFloat(years.value);
-    //    }
-    //    else if (months > 0) {
-    //        const t = parseFloat(months.value);
-    //    }
-    //    else {
-    //        showError("You did not enter any time")
-    //    }
+    //function showError(error) {
+    //    // create error
+    //    const errorMessage = document.createElement('div');
+    //    const calculate = document.querySelector('#calculate');
 
-    //    if (principal > 0) {
-    //        document.getElementById("test").innerHTML = "test";
-    //    }
-    //    // calculate total interest
-    //    const interest = (p * t * r / 100);
-    //    // calculate monthly payment
-    //    const payment = ((interest + p) / (t * 12)).toFixed(2);
-    //    // calculate total amount paid
-    //    const total = (interest + p).toFixed(2);
-
-    //    if (isFinite(payment)) {
-    //        totalInterest.innerHTML = '$' + (interest).toFixed(2);
-    //        monthlyPayment.innerHTML = '$' + payment;
-    //        totalAmount.innerHTML = '$' + total;
-    //        // hide loader
-    //        button.classList.remove('loading');
-    //        // show results
-    //        results.classList.remove('hide');
-    //    } else {
-    //        // show error
-    //        showError('Please check your numbers and try again.');
-    //        // hide loader
-    //        button.classList.remove('loading');
-    //    }
+    //    errorMessage.className = 'error';
+    //    errorMessage.appendChild(document.createTextNode(error));
+    //    simpleInterest.insertBefore(errorMessage, calculate);
+    //    // clear error
+    //    setTimeout(clearError, 3000);
     //}
 
-    function showError(error) {
-        // create error
-        const errorMessage = document.createElement('div');
-        const calculate = document.querySelector('#calculate');
+    //function clearError() {
+    //    // remove error
+    //    document.querySelector('.error').remove();
+    //}
 
-        errorMessage.className = 'error';
-        errorMessage.appendChild(document.createTextNode(error));
-        simpleInterest.insertBefore(errorMessage, calculate);
-        // clear error
-        setTimeout(clearError, 3000);
-    }
+    //button.addEventListener('click', (e) => {
+    //    console.log('Calculating...');
+    //    // show loader
+    //    button.classList.add('loading');
 
-    function clearError() {
-        // remove error
-        document.querySelector('.error').remove();
-    }
+    //    // set timeout
+    //    setTimeout(calculateResults, 2000);
 
-    button.addEventListener('click', (e) => {
-        console.log('Calculating...');
-        // show loader
-        button.classList.add('loading');
-
-        // set timeout
-        setTimeout(calculateResults, 2000);
-
-        // prevent page from reloading on submit
-        e.preventDefault();
-    });
+    //    // prevent page from reloading on submit
+    //    e.preventDefault();
+    //});
