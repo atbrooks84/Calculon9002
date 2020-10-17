@@ -10,12 +10,37 @@ function calculateResults(e) {
 
     // ui elements
     const principal = Number(document.getElementById("principal").value);
-    const rate = Number(document.getElementById("interest").value);
-    const years = Number(document.getElementById("years").value);
-    const months = Number(document.getElementById("months").value);
+    document.getElementById("initial").innerHTML = "$" + principal;
+    const interest = Number(document.getElementById("interest").value);
+    let years = Number(document.getElementById("years").value);
+    let months = Number(document.getElementById("months").value);
 
-    let testOutput = "$100";
-    document.getElementById("payment").innerHTML = testOutput;
+    
+    
+
+    
+    
+    if (years && months) {
+        showError("Please only use months or years")
+    }
+    else if (years > 0) {
+        months = years * 12;
+        let loanAmount = parseFloat(principal);
+        let rate = parseFloat(interest);
+        let monthlyPayment = (loanAmount) * (rate / 1200) / (1 - (1 + rate / 1200) ** (-months));
+        document.getElementById("payment").innerHTML = monthlyPayment.toFixed(2);
+        return;
+    }
+
+    if (loanAmount > 0) {
+        let previousRemainingBalance = loanAmount;
+    }
+
+    loanAmount = parseFloat(principal);
+    rate = parseFloat(interest);
+    let monthlyPayment = (loanAmount) * (rate / 1200) / (1 - (1 + rate / 1200) ** (-months));
+    document.getElementById("payment").innerHTML = monthlyPayment;
+    return;
 
 }
 //    const monthlyPayment = document.getElementById("payment");
