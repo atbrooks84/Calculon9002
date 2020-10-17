@@ -20,7 +20,7 @@
         months = years * 12;
         let loanAmount = parseFloat(principal);
         let rate = parseFloat(interest);
-        let monthlyPayment = (loanAmount) * (rate / 1200) / (1 - (1 + rate / 1200) ** (-months));
+        var monthlyPayment = (loanAmount) * (rate / 1200) / (1 - (1 + rate / 1200) ** (-months));
         document.getElementById("payment").innerHTML = monthlyPayment.toFixed(2);
 
     }
@@ -28,12 +28,13 @@
         
         let loanAmount = parseFloat(principal);
         let rate = parseFloat(interest);
-        let monthlyPayment = (loanAmount) * (rate / 1200) / (1 - (1 + rate / 1200) ** (-months));
+        var monthlyPayment = (loanAmount) * (rate / 1200) / (1 - (1 + rate / 1200) ** (-months));
         document.getElementById("payment").innerHTML = monthlyPayment.toFixed(2);
 
     }
     else {
         showError("You didn't enter a time limit");
+        return;
     }
 
 
@@ -41,21 +42,27 @@
 
 
     paymentsPrincipal = [];
-    paymentsPrincipal.push[principal];
+    paymentsPrincipal.push(principal);
+    
     for (let i = 0, paymentsInterest = []; i < months; i++) {
 
         let previousRemainingBalance = principal;
-        let currentInterest = "";
+        
+        
+        let currentInterest = 0;
+        let rate = parseFloat(interest);
         let interestPayment = ((previousRemainingBalance * rate) / 1200);
-        let principalPayment = monthlyPayment - interestPayment
+        let principalPayment = monthlyPayment - interestPayment;
         let updateTotal = interestPayment + currentInterest;
-        paymentsInterest.push[interestPayment];
-        paymentsPrincipal.push[principalPayment];
+        currentInterest = updateTotal.toFixed(2);
+        previousRemainingBalance = previousRemainingBalance - monthlyPayment;
+        paymentsInterest.push(interestPayment.toFixed(2));
+        paymentsPrincipal.push(principalPayment.toFixed(2));
 
         document.getElementById("testInterestPayments").innerHTML = paymentsInterest.join(", $");
-        document.getElementById("testPricipalPayments").innerHTML = paymentsPrincipal.join(", $");
-        document.getElementById("finalInterest").innerHTML = updateTotal;
-        document.getElementById("total").innerHTML = (principal + updateTotal);
+        document.getElementById("testPrincipalPayments").innerHTML = paymentsPrincipal.join(", $");
+        document.getElementById("finalInterest").innerHTML = updateTotal.toFixed(2);
+        document.getElementById("total").innerHTML = (principal + updateTotal.toFixed(2));
     }
 
    
