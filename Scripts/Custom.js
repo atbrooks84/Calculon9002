@@ -56,7 +56,7 @@ function removeData(chart) {
         dataset.data.pop();
     });
     chart.update();
-}}
+}
 
 (function totalMonthlyPayment() {
     function calculateTotalMonthlyPayment(loanAmount, rateAmount) {
