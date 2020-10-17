@@ -49,12 +49,12 @@ input:focus, textarea:focus, select:focus {
 }
 
 
-input[type="submit"] {
+input[type="button"] {
 /*    background-image: linear-gradient(to bottom left,#e14eca,#ba54f5,#e14eca);*/
     background-color: #e14eca;
 }
 
-input[type="submit"]:hover {
+input[type="button"]:hover {
     background-image: linear-gradient(to bottom left,#e14eca,#ba54f5,#e14eca);
     background-color: #e14eca;
 }
