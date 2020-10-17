@@ -9,11 +9,11 @@ function calculateResults(e) {
 
     
     // ui elements
-    const principal = document.querySelector('#principal');
-    const rate = document.querySelector('#rate');
-    const years = document.querySelector('#years');
-    const months = document.querySelector('#months')
-    const monthlyPayment = document.querySelector('#payment');
+    const principal = Number(document.getElementById("principal").value);
+    const rate = Number(document.getElementById("interest").value);
+    const years = Number(document.getElementById("years").value);
+    const months = Number(document.getElementById("months").value);
+    const monthlyPayment = document.getElementById("payment").innerHTML;
     const totalInterest = document.querySelector('#interest');
     const totalAmount = document.querySelector('#total');
     // formula variables
