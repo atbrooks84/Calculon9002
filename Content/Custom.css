@@ -74,6 +74,14 @@ input[type="button"]:hover {
     margin-left: 3%;
 }
 
+.table {
+    background-color: #27293d;
+}
+
+.custom-border {
+    border: 2px solid #e14eca;
+}
+
 /*.result-border{
     border: 2px solid white;
 }*/

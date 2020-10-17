@@ -1,4 +1,6 @@
 ﻿Chart.defaults.global.defaultFontColor = 'white';
+Chart.defaults.global.legend.display = false;
+
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
             type: 'line',
