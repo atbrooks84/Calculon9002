@@ -62,6 +62,7 @@
 
     //let paymentsPrincipal = [];
     //let paymentsInterest = [];
+    paymentsPrincipal = [];    
     //let previousRemainingBalance = principal;
     //let currentInterest = 0;
     //paymentsPrincipal.push(parseFloat(principal));
@@ -88,6 +89,22 @@
     //    document.getElementById("finalInterest").innerHTML = parseFloat(updateTotal).toFixed(2);
     //    document.getElementById("total").innerHTML = finalTotal;
     //}
+        //let currentInterest = 0;
+        let rate = parseFloat(interest);
+        let interestPayment = ((previousRemainingBalance * (rate / 1200)));        
+        let principalPayment = parseFloat(monthlyPayment) - parseFloat(interestPayment);
+        let updateTotal = parseFloat(interestPayment) + parseFloat(currentInterest);
+        currentInterest = parseFloat(updateTotal);
+        previousRemainingBalance = previousRemainingBalance - monthlyPayment;
+        paymentsInterest.push(parseFloat(interestPayment));
+        paymentsPrincipal.push(parseFloat(principalPayment));
+        let finalTotal = parseFloat(principal) + parseFloat(updateTotal);
+
+        document.getElementById("testInterestPayments").innerHTML = paymentsInterest.join(", $");
+        document.getElementById("testPrincipalPayments").innerHTML = paymentsPrincipal.join(", $");
+        document.getElementById("finalInterest").innerHTML = parseFloat(updateTotal).toFixed(2);
+        document.getElementById("total").innerHTML = finalTotal;
+    }
 
    
 
