@@ -50,13 +50,8 @@
     for (let i = 0; i < months; i++) {
         interestPayment = remainingBalance * (interest / 1200);
         principalPayment = monthlyPayment - interestPayment
-        console.log(remainingBalance, principalPayment)
-        remainingBalance = remainingBalance - principalPayment;
 
-        //if (remainingBalance < monthlyPayment) {
-        //    interestPayment = 0;
-        //    principalPayment = remainingBalance
-        //}
+        remainingBalance = remainingBalance - principalPayment;
 
         amortizationSchedule.push([i + 1, monthlyPayment, principalPayment, interestPayment, remainingBalance])
         console.log(...amortizationSchedule[i])
