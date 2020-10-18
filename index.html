@@ -14,16 +14,232 @@
     <!-- Bootstrap core CSS -->
     <!-- Bootstrap core CSS -->
     <link href="Content/bootstrap.css" rel="stylesheet" />
-    <link href="Content/Custom.css" rel="stylesheet" />
+
     <link href="Content/AdamStyles.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="/Images/favicon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="Content/hamburgers.css" rel="stylesheet">
+    <link href="Content/Custom.css" rel="stylesheet" />
 
 </head>
 
 <body>
+    
+    <div class="left">
+        <div class="sidebar closed">
 
+        </div>
+    </div>
+    <div class="main closed">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+            <div class="container">
+                <div class="navbar-wrapper">
+                    <div class="hamburgerHelper">
+                        <button id="toggle" class="hamburger hamburger--elastic" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                    
+                    <a class="navbar-brand" href="Index.html">Calculon</a>
+                </div>
+            </div>
+        </nav>
+        <div class="right">
+        <!-- Page Content -->
+        <div class="container h-100 p-5 area" style="height:100%">
+            <div class="row text-center">
+                <div class="col mx-auto calculate-form">
+                    <!--Loan Calculator Title-->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="heading display-5 pb-3">Loan Calculator</h1>
+                        </div>
+                    </div>
+                    <!--Input Form-->
+                    <form id="loan-form">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        <input type="number"
+                                               class="form-control"
+                                               id="principal"
+                                               placeholder="Loan Amount" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">%</span>
+                                        </div>
+                                        <input type="number"
+                                               class="form-control"
+                                               id="interest"
+                                               placeholder="Interest" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <input type="number"
+                                           id="years"
+                                           class="form-control"
+                                           placeholder="Years To Repay" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="number"
+                                           id="months"
+                                           class="form-control"
+                                           placeholder="Months To Repay" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <input type="button"
+                                           onclick="calculateResults();"
+                                           value="Calculate"
+                                           class="btn btn-dark" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="container area mt-4 footer-margin p-5">
+            <!--Results  Title-->
+            <div class="row text-center">
+                <div class="col-lg-12">
+                    <h1 class="heading display-5 pb-3">Your Monthly Payments</h1>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-lg-3 col-md-6 p-1">
+                    <div class="result-container mx-auto">
+                        <div class="result-border d-inline-flex">
+                            <div class="tag">
+                                Total Principal
+                            </div>
+                            <span id="initial" class="result-num my-auto">$4,500</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 p-1">
+                    <div class="result-container">
+                        <div class="result-border d-inline-flex">
+                            <div class="tag">
+                                Total Interest
+                            </div>
+                            <span id="finalInterest" class="result-num my-auto">$4,500</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 p-1">
+                    <div class="result-container">
+                        <div class="result-border d-inline-flex">
+                            <div class="tag">
+                                Monthly Payment
+                            </div>
+                            <span id="payment" class="result-num my-auto">$4,500</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 p-1">
+                    <div class="result-container">
+                        <div class="result-border d-inline-flex">
+                            <div class="tag">
+                                Total Cost
+                            </div>
+                            <span id="total" class="result-num my-auto">$4,500</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-12 text-center">
+                    <canvas id="myChart" width="400px" height="150px"></canvas>
+
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <p id="testInterestPayments"></p>
+                    <p id="testPrincipalPayments"></p>
+                    <div class="table-container">
+                        <table id="datatable" class="table table-responsive-md table-dark">
+
+                            <thead>
+                                <tr>
+                                    <th scope="col">Month</th>
+                                    <th scope="col">Payment</th>
+                                    <th scope="col">Principal</th>
+                                    <th scope="col">Interest</th>
+                                    <th scope="col">Total Interest</th>
+                                    <th scope="col">Balance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>$471.78</td>
+                                    <td>$471.78</td>
+                                    <td>$471.78</td>
+                                    <td>$471.78</td>
+                                    <td>$471.78</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>$471.78</td>
+                                    <td>$471.78</td>
+                                    <td>$471.78</td>
+                                    <td>$471.78</td>
+                                    <td>$471.78</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>$471.78</td>
+                                    <td>$471.78</td>
+                                    <td>$471.78</td>
+                                    <td>$471.78</td>
+                                    <td>$471.78</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col">
+                    <div class="dropdown">
+                        <button class="btn btn-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Download
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
+                                <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="animate__animated animate__bounceIn dropdown-item" href="#">Excel</a>
+                            <a class="animate__animated animate__bounceIn animate__delay-1s small-delay dropdown-item" href="#">CSV</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
         <div class="container">
             <a class="navbar-brand" href="Index.html">Calculon</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,192 +283,7 @@
                 </ul>
             </div>
         </div>
-    </nav>
-
-    <!-- Page Content -->
-    <div class="container h-100 mt-5 p-5 area" style="height:100%">
-        <div class="row text-center">
-            <div class="col mx-auto calculate-form">
-                <!--Loan Calculator Title-->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="heading display-5 pb-3">Loan Calculator</h1>
-                    </div>
-                </div>
-                <!--Input Form-->
-                <form id="loan-form">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">$</span>
-                                    </div>
-                                    <input type="number"
-                                           class="form-control"
-                                           id="principal"
-                                           placeholder="Loan Amount" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">%</span>
-                                    </div>
-                                    <input type="number"
-                                           class="form-control"
-                                           id="interest"
-                                           placeholder="Interest" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <div class="form-group">
-                                <input type="number"
-                                       id="years"
-                                       class="form-control"
-                                       placeholder="Years To Repay" />
-                            </div>
-                            <div class="form-group">
-                                <input type="number"
-                                       id="months"
-                                       class="form-control"
-                                       placeholder="Months To Repay" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <input type="button"
-                                       onclick="calculateResults();"
-                                       value="Calculate"
-                                       class="btn btn-dark" />
-                            </div>
-                        </div>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-
-    </div>
-    <div class="container area mt-5 mb-5 p-5">
-        <!--Results  Title-->
-        <div class="row text-center">
-            <div class="col-lg-12">
-                <h1 class="heading display-5 pb-3">Your Monthly Payments</h1>
-            </div>
-        </div>
-        <div class="row text-center">
-            <div class="col-lg-3 col-md-6 p-1">
-                <div class="result-container mx-auto">
-                    <div class="result-border d-inline-flex">
-                        <div class="tag">
-                            Total Principal
-                        </div>
-                        <span id="initial" class="result-num my-auto">$4,500</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 p-1">
-                <div class="result-container">
-                    <div class="result-border d-inline-flex">
-                        <div class="tag">
-                            Total Interest
-                        </div>
-                        <span id ="finalInterest" class="result-num my-auto">$4,500</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 p-1">
-                <div class="result-container">
-                    <div class="result-border d-inline-flex">
-                        <div class="tag">
-                            Monthly Payment
-                        </div>
-                        <span id="payment" class="result-num my-auto">$4,500</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 p-1">
-                <div class="result-container">
-                    <div class="result-border d-inline-flex">
-                        <div class="tag">
-                            Total Cost
-                        </div>
-                        <span id="total" class="result-num my-auto">$4,500</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col-lg-12 text-center">
-                <canvas id="myChart" width="400px" height="150px"></canvas>
-
-            </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col-lg-12">
-                <p id="testInterestPayments"></p>
-                <p id="testPrincipalPayments"></p>
-                <div class="table-container">
-                    <table id="datatable" class="table table-responsive-md table-dark">
-
-                        <thead>
-                            <tr>
-                                <th scope="col">Month</th>
-                                <th scope="col">Payment</th>
-                                <th scope="col">Principal</th>
-                                <th scope="col">Interest</th>
-                                <th scope="col">Total Interest</th>
-                                <th scope="col">Balance</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>$471.78</td>
-                                <td>$471.78</td>
-                                <td>$471.78</td>
-                                <td>$471.78</td>
-                                <td>$471.78</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>$471.78</td>
-                                <td>$471.78</td>
-                                <td>$471.78</td>
-                                <td>$471.78</td>
-                                <td>$471.78</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>$471.78</td>
-                                <td>$471.78</td>
-                                <td>$471.78</td>
-                                <td>$471.78</td>
-                                <td>$471.78</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="row text-center">
-            <div class="col">
-                <button class="btn btn-dark">
-                    Download Excel
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
-                        <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </div>
-
-
+    </nav>-->
     <!-- Bootstrap core JavaScript -->
 
     <script src="Scripts/jquery.slim.js"></script>
@@ -261,9 +292,53 @@
 
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/excellentexport@3.4.3/dist/excellentexport.min.js"></script>
-    <script src="Scripts/bootstrap.bundle.js"></script>
     <script src="Scripts/Custom.js"></script>
     <script src="Scripts/AdamScripts.js"></script>
+
+    <script type="text/javascript">
+        let toggle = false;
+        document.querySelector('.hamburgerHelper').addEventListener("click", function () {
+            toggleSideNav();
+        })
+
+        function toggleSideNav() {
+            if (!toggle) {
+                toggle = true;
+                openSideNav()
+            } else {
+                toggle = false;
+                closeSideNav();
+            }
+        }
+
+        function openSideNav() {
+            toggle = true;
+            hamburger = document.getElementById('toggle');
+            sidebar = document.querySelector('.sidebar');
+            main = document.querySelector('.main');
+
+            hamburger.classList.add('is-active');
+            sidebar.classList.remove('closed');
+            sidebar.classList.add('open');
+
+            main.classList.remove('closed');
+            main.classList.add('open');
+        }
+
+        function closeSideNav() {
+            toggle = false;
+            hamburger = document.getElementById('toggle');
+            sidebar = document.querySelector('.sidebar');
+            main = document.querySelector('.main');
+
+            hamburger.classList.remove('is-active')
+            sidebar.classList.remove('open');
+            sidebar.classList.add('closed');
+
+            main.classList.remove('open');
+            main.classList.add('closed');
+        }
+    </script>
 
 </body>
 

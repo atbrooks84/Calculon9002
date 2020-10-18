@@ -79,6 +79,7 @@
     <Content Include="Web.config" />
     <Content Include="Content\Custom %28Josh%29.css" />
     <Content Include="Scripts\Custom %28Josh%29.js" />
+    <Content Include="Images\home.svg" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
