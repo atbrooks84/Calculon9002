@@ -19,7 +19,7 @@
     if (years && months) {
         showError("Please only use months or years")
     }
-    else if (years > 0) {
+    else if (years > 0 && years < 50) {
         months = years * 12;
         let loanAmount = parseFloat(principal);
         let rate = parseFloat(interest);
@@ -27,13 +27,16 @@
         document.getElementById("payment").innerHTML = monthlyPayment.toFixed(2);
 
     }
-    else if (months > 0) {
+    else if (months > 0 && months < 600) {
         
         let loanAmount = parseFloat(principal);
         let rate = parseFloat(interest);
         var monthlyPayment = (loanAmount) * (rate / 1200) / (1 - (1 + rate / 1200) ** (-months));
         document.getElementById("payment").innerHTML = monthlyPayment.toFixed(2);
 
+    }
+    else if (years > 50 || months > 600) {
+        showError("That's too long")
     }
     else {
         showError("You didn't enter a time limit");
@@ -64,6 +67,17 @@
         paymentsPrincipal.push(principalPayment)
         interestPaymentsSum.push(interestPayment)
         remainingBalanceCount.push(remainingBalance);
+
+        function sum(total, num) {
+            return total + num;
+        }
+
+        let finalInterest = interestPaymentsSum.reduce(sum).toFixed(2);
+        let totalLoan = parseFloat(finalInterest) + principal;
+
+        document.getElementById("testInterestResults").innerHTML = interestPaymentsSum.join(", $");
+        document.getElementById("finalInterest").innerHTML = finalInterest;
+        document.getElementById("total").innerHTML = totalLoan;
         
         //totalInterest = currentInterest + interestPayment;
         //currentInterest = interestPayment;
@@ -71,23 +85,27 @@
 
         
 
-        document.getElementById("testInterestPayments").innerHTML = paymentsInterest.join(", $");
-        document.getElementById("testPrincipalPayments").innerHTML = paymentsPrincipal.join(", $");
-        document.getElementById("testBalanceResults").innerHTML = remainingBalanceCount.join(", $");
+        //document.getElementById("testInterestPayments").innerHTML = paymentsInterest.join(", $");
+        //document.getElementById("testPrincipalPayments").innerHTML = paymentsPrincipal.join(", $");
+        //document.getElementById("testBalanceResults").innerHTML = remainingBalanceCount.join(", $");
         
         //document.getElementById("finalInterest").innerHTML = parseFloat(totalInterest).toFixed(2);
         //document.getElementById("total").innerHTML = finalCost;
 
         
-        for (let a = 0, sum = 0; a < interestPaymentsSum.length; a++) {
-            sum += parseFloat(interestPaymentsSum[a]);
-            totalInterestCount.push(sum);
-            finalCost = principal + sum;
+        //for (let a = 0, sum = 0; a < interestPaymentsSum.length; a++) {
+        //    sum += parseFloat(interestPaymentsSum[a]);
+        //    totalInterestCount.push(sum);
+        //    finalCost = principal + sum;
             
-            document.getElementById("testInterestResults").innerHTML = totalInterestCount.join(", $");
-            document.getElementById("finalInterest").innerHTML = parseFloat(sum).toFixed(2);
-            document.getElementById("total").innerHTML = finalCost.toFixed(2) ;
-        }
+        //    //document.getElementById("testInterestResults").innerHTML = totalInterestCount.join(", $");
+            
+
+
+        //    document.getElementById("finalInterest").innerHTML = parseFloat(sum).toFixed(2);
+        //    document.getElementById("total").innerHTML = finalCost.toFixed(2) ;
+        //}
+            
     }
 
     
@@ -150,17 +168,10 @@
 calculateResults("");
 
 
-    //function showError(error) {
-    //    // create error
-    //    const errorMessage = document.createElement('div');
-    //    const calculate = document.querySelector('#calculate');
-
-    //    errorMessage.className = 'error';
-    //    errorMessage.appendChild(document.createTextNode(error));
-    //    simpleInterest.insertBefore(errorMessage, calculate);
-    //    // clear error
-    //    setTimeout(clearError, 3000);
-    //}
+    function showError(error) {
+        // create error
+        document.getElementById("error").innerHTML = error;
+    }
 
     //function clearError() {
     //    // remove error
