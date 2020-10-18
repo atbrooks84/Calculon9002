@@ -71,6 +71,7 @@
     <Content Include="Content\AdamStyles.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\Custom.css" />
+    <Content Include="Images\Adam Brooks.jpg" />
     <Content Include="Images\LinkedIn picture.jpg" />
     <Content Include="index.html" />
     <Content Include="Scripts\AdamScripts.js" />
