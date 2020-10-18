@@ -1,14 +1,42 @@
 ﻿Chart.defaults.global.defaultFontColor = 'white';
 Chart.defaults.global.legend.display = false;
 
+function randomNumber(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+//var doughnutChart = document.getElementById('doughnutChart').getContext('2d');
+//// And for a doughnut chart
+//var myDoughnutChart = new Chart(doughnutChart, {
+//    type: 'doughnut',
+//    data: {
+//        datasets: [{
+//            data: [10, 20, 30]
+//        }],
+
+//        // These labels appear in the legend and in the tooltips when hovering different arcs
+//        labels: [
+//            'Red',
+//            'Yellow',
+//            'Blue'
+//        ]
+//    },
+//    options: {
+//        animation: {
+//            animateRotate: true
+//        }   
+//    }
+//});
+
+
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
-            type: 'line',
+    type: 'line',
     data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: [1,2,3,4,5],
         datasets: [{
             label: 'Monthly Payments',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [1,2,3,4,5],
             backgroundColor: 'rgba(225, 78, 202, 0.2)',
             borderColor: 'rgba(225, 78, 202, 1)',
             borderWidth: 3,
@@ -33,16 +61,43 @@ var myChart = new Chart(ctx, {
                 }
             }]
         }
-}
+    }
 });
 
-setTimeout(function () {
-    console.log("Ran")
-    myChart.data.datasets[0].data = [10, 30, 5, 6, 7, 7, 1, 23, 43, 32, 5, 5, 6, 54, 4, 4];
-    myChart.data.datasets[0].labels = ["10", "30", "5", "6", "7", "7", "1", "23", "43", "32", "5", "5", "6", "54", "4", "4"];
+function updateChart() {
+    labelMaker = []
+    chartMaker = []
+    for (let i = 0; i < 300; i++) {
+        labelMaker.push(i + 1);
+        chartMaker.push(randomNumber(3, 9));
+    }
+
+    myChart.data = {
+        labels: labelMaker,
+        datasets: [{
+            label: 'Monthly Payments',
+            data: chartMaker,
+            backgroundColor: 'rgba(225, 78, 202, 0.2)',
+            borderColor: 'rgba(225, 78, 202, 1)',
+            borderWidth: 3,
+            pointHitRadius: 20
+        }]
+    }
 
     myChart.update();
-}, 3000)
+}
+
+setInterval(function () {
+    updateChart();
+}, 5000)
+
+//setTimeout(function () {
+//    console.log("Ran")
+//    myChart.data.datasets[0].data = [10, 30, 5, 6, 7, 7, 1, 23, 43, 32, 5, 5, 6, 54, 4, 4];
+//    myChart.data.datasets[0].labels = ["10", "30", "5", "6", "7", "7", "1", "23", "43", "32", "5", "5", "6", "54", "4", "4"];
+
+//    myChart.update();
+//}, 3000)
 
 function addData(chart, label, data) {
     chart.data.labels.push(label);
