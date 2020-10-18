@@ -92,12 +92,17 @@ function calculateResults(e) {
         showError("Please enter a time limit");
         return;
     }
+    else if (years && months) {
+        let addMonths = months;
+        let addYears = years * 12;
+        months = addMonths + addYears;
+    }
 
-    if (years) {
+    else if (years) {
         months = years * 12;
     }
 
-    if (months > 600) {
+    else if (months > 600) {
         showError("Too many years. Please enter 50 or less.")
     }
 
@@ -118,13 +123,17 @@ function calculateResults(e) {
         amortizationSchedule.push([i + 1, monthlyPayment, principalPayment, interestPayment, totalInterest, remainingBalance])
     }
 
-    
+    let finalElement = amortizationSchedule[amortizationSchedule.length - 1]
+    let finalInterest = finalElement[4].toFixed(2);
+    let finalCost = Number(finalInterest) + Number(principal);
+    document.getElementById("finalInterest").innerHTML = finalInterest;
+    document.getElementById("total").innerHTML = finalCost;
+
     generateGrid(amortizationSchedule);
     updateChart(amortizationSchedule);
 
-    paymentsPrincipal = [];    
+    paymentsPrincipal = [];
 }
-
 
 function showError(error) {
     // create error
