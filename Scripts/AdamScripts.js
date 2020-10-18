@@ -74,7 +74,7 @@
         document.getElementById("testInterestPayments").innerHTML = paymentsInterest.join(", $");
         document.getElementById("testPrincipalPayments").innerHTML = paymentsPrincipal.join(", $");
         document.getElementById("testBalanceResults").innerHTML = remainingBalanceCount.join(", $");
-       
+        
         //document.getElementById("finalInterest").innerHTML = parseFloat(totalInterest).toFixed(2);
         //document.getElementById("total").innerHTML = finalCost;
 
