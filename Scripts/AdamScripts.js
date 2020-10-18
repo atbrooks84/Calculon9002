@@ -49,6 +49,8 @@
     let paymentsInterest = [];
     let paymentsPrincipal = [];
     let interestPaymentsSum = [];
+    let totalInterestCount = [];
+    let remainingBalanceCount = [];
 
     for (let i = 0, currentInterest = 0, totalInterest = 0; i < months; i++) {
         let interestPayment = remainingBalance * (interest / 1200);
@@ -61,6 +63,8 @@
         paymentsInterest.push(interestPayment);
         paymentsPrincipal.push(principalPayment)
         interestPaymentsSum.push(interestPayment)
+        remainingBalanceCount.push(remainingBalance);
+        
         //totalInterest = currentInterest + interestPayment;
         //currentInterest = interestPayment;
         //finalCost = principal + totalInterest;
@@ -69,16 +73,20 @@
 
         document.getElementById("testInterestPayments").innerHTML = paymentsInterest.join(", $");
         document.getElementById("testPrincipalPayments").innerHTML = paymentsPrincipal.join(", $");
+        document.getElementById("testBalanceResults").innerHTML = remainingBalanceCount.join(", $");
+       
         //document.getElementById("finalInterest").innerHTML = parseFloat(totalInterest).toFixed(2);
         //document.getElementById("total").innerHTML = finalCost;
 
         
         for (let a = 0, sum = 0; a < interestPaymentsSum.length; a++) {
             sum += parseFloat(interestPaymentsSum[a]);
+            totalInterestCount.push(sum);
             finalCost = principal + sum;
-
+            
+            document.getElementById("testInterestResults").innerHTML = totalInterestCount.join(", $");
             document.getElementById("finalInterest").innerHTML = parseFloat(sum).toFixed(2);
-            document.getElementById("total").innerHTML = finalCost.toFixed(2);
+            document.getElementById("total").innerHTML = finalCost.toFixed(2) ;
         }
     }
 
