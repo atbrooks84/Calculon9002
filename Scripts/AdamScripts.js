@@ -62,7 +62,7 @@
         remainingBalance = remainingBalance - principalPayment;
 
         amortizationSchedule.push([i + 1, monthlyPayment, principalPayment, interestPayment, remainingBalance])
-        console.log(...amortizationSchedule[i])
+        //console.log(...amortizationSchedule[i])
         paymentsInterest.push(interestPayment);
         paymentsPrincipal.push(principalPayment)
         interestPaymentsSum.push(interestPayment)
@@ -75,9 +75,26 @@
         let finalInterest = interestPaymentsSum.reduce(sum).toFixed(2);
         let totalLoan = parseFloat(finalInterest) + principal;
 
-        document.getElementById("testInterestResults").innerHTML = interestPaymentsSum.join(", $");
+        //document.getElementById("testInterestResults").innerHTML = interestPaymentsSum.join(", $");
         document.getElementById("finalInterest").innerHTML = finalInterest;
         document.getElementById("total").innerHTML = totalLoan;
+
+        function generateGrid(amortizationSchedule) {
+            html = "";
+            for (let row = 0; row < amortizationSchedule.length; row++) {
+                html += "<tr>";
+                html += `<th scope="row">${amortizationSchedule[row][0]}</th>`
+                for (let cell = 1; cell < amortizationSchedule[row].length; cell++) {
+                    html += `<td>${amortizationSchedule[row][cell]}</td>`
+                }
+
+                html += "</tr>";
+            }
+
+            document.getElementById("generated").innerHTML = html;
+        }
+
+        generateGrid(amortizationSchedule);
         
         //totalInterest = currentInterest + interestPayment;
         //currentInterest = interestPayment;
