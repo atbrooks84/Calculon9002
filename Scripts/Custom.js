@@ -29,67 +29,33 @@ function randomNumber(min, max) {
 //});
 
 
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: [1,2,3,4,5],
-        datasets: [{
-            label: 'Monthly Payments',
-            data: [1,2,3,4,5],
-            backgroundColor: 'rgba(225, 78, 202, 0.2)',
-            borderColor: 'rgba(225, 78, 202, 1)',
-            borderWidth: 3,
-            pointHitRadius: 20
-        }]
-    },
-    options: {
-        scales: {
-            xAxes: [{
-                display: true,
-                gridLines: {
-                    color: "#383838"
-                },
-            }],
-            yAxes: [{
-                display: true,
-                gridLines: {
-                    color: "#383838"
-                },
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
 
-function updateChart() {
-    labelMaker = []
-    chartMaker = []
-    for (let i = 0; i < 300; i++) {
-        labelMaker.push(i + 1);
-        chartMaker.push(randomNumber(3, 9));
-    }
+//function updateChart() {
+//    labelMaker = []
+//    chartMaker = []
+//    for (let i = 0; i < 300; i++) {
+//        labelMaker.push(i + 1);
+//        chartMaker.push(randomNumber(3, 9));
+//    }
 
-    myChart.data = {
-        labels: labelMaker,
-        datasets: [{
-            label: 'Monthly Payments',
-            data: chartMaker,
-            backgroundColor: 'rgba(225, 78, 202, 0.2)',
-            borderColor: 'rgba(225, 78, 202, 1)',
-            borderWidth: 3,
-            pointHitRadius: 20
-        }]
-    }
+//    myChart.data = {
+//        labels: labelMaker,
+//        datasets: [{
+//            label: 'Monthly Payments',
+//            data: chartMaker,
+//            backgroundColor: 'rgba(225, 78, 202, 0.2)',
+//            borderColor: 'rgba(225, 78, 202, 1)',
+//            borderWidth: 3,
+//            pointHitRadius: 20
+//        }]
+//    }
 
-    myChart.update();
-}
+//    myChart.update();
+//}
 
-setInterval(function () {
-    updateChart();
-}, 5000)
+//setInterval(function () {
+//    updateChart();
+//}, 5000)
 
 //setTimeout(function () {
 //    console.log("Ran")

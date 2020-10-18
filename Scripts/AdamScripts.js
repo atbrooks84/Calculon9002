@@ -1,4 +1,42 @@
-﻿const formatter = new Intl.NumberFormat('en-US', {
+﻿Chart.defaults.global.defaultFontColor = 'white';
+Chart.defaults.global.legend.display = false;
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["","","","",""],
+        datasets: [{
+            label: 'Monthly Payments',
+            data: [5,5,5,5,5],
+            backgroundColor: 'rgba(225, 78, 202, 0.2)',
+            borderColor: 'rgba(225, 78, 202, 1)',
+            borderWidth: 3,
+            pointHitRadius: 20
+        }]
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                display: true,
+                gridLines: {
+                    color: "#383838"
+                },
+            }],
+            yAxes: [{
+                display: true,
+                gridLines: {
+                    color: "#383838"
+                },
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
     minimumFractionDigits: 2
@@ -10,13 +48,36 @@ function generateGrid(amortizationSchedule) {
         html += "<tr>";
         html += `<th scope="row">${amortizationSchedule[row][0]}</th>`
         for (let cell = 1; cell < amortizationSchedule[row].length; cell++) {
-            html += `<td>${formatter.format(amortizationSchedule[row][cell].toFixed(2))}</td>`
+            html += `<td>${formatter.format(Math.abs(amortizationSchedule[row][cell].toFixed(2)))}</td>`
         }
 
         html += "</tr>";
     }
 
     document.getElementById("generated").innerHTML = html;
+}
+
+function updateChart(amortizationSchedule) {
+    newLabels = []
+    newData = []
+    
+    for (let i = 0; i < amortizationSchedule.length; i++) {
+        newLabels.push(amortizationSchedule[i][0])
+        newData.push(amortizationSchedule[i][3].toFixed(2))
+    }
+
+    myChart.data = {
+        labels: newLabels,
+        datasets: [{
+            label: 'Interest',
+            data: newData,
+            backgroundColor: 'rgba(225, 78, 202, 0.2)',
+            borderColor: 'rgba(225, 78, 202, 1)',
+            borderWidth: 3,
+            pointHitRadius: 20
+        }]
+    }
+    myChart.update();
 }
 
 
@@ -59,6 +120,7 @@ function calculateResults(e) {
 
     
     generateGrid(amortizationSchedule);
+    updateChart(amortizationSchedule);
 
     paymentsPrincipal = [];    
 }
