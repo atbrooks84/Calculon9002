@@ -39,7 +39,7 @@
         showError("That's too long")
     }
     else {
-        //showError("You didn't enter a time limit");
+        showError("You didn't enter a time limit");
         return;
     }
 
@@ -67,6 +67,17 @@
         paymentsPrincipal.push(principalPayment)
         interestPaymentsSum.push(interestPayment)
         remainingBalanceCount.push(remainingBalance);
+
+        function sum(total, num) {
+            return total + num;
+        }
+
+        let finalInterest = interestPaymentsSum.reduce(sum).toFixed(2);
+        let totalLoan = parseFloat(finalInterest) + principal;
+
+        document.getElementById("testInterestResults").innerHTML = interestPaymentsSum.join(", $");
+        document.getElementById("finalInterest").innerHTML = finalInterest;
+        document.getElementById("total").innerHTML = totalLoan;
         
         //totalInterest = currentInterest + interestPayment;
         //currentInterest = interestPayment;
@@ -82,18 +93,18 @@
         //document.getElementById("total").innerHTML = finalCost;
 
         
-        for (let a = 0, sum = 0; a < interestPaymentsSum.length; a++) {
-            sum += parseFloat(interestPaymentsSum[a]);
-            totalInterestCount.push(sum);
-            finalCost = principal + sum;
+        //for (let a = 0, sum = 0; a < interestPaymentsSum.length; a++) {
+        //    sum += parseFloat(interestPaymentsSum[a]);
+        //    totalInterestCount.push(sum);
+        //    finalCost = principal + sum;
             
-            //document.getElementById("testInterestResults").innerHTML = totalInterestCount.join(", $");
+        //    //document.getElementById("testInterestResults").innerHTML = totalInterestCount.join(", $");
             
 
 
-            document.getElementById("finalInterest").innerHTML = parseFloat(sum).toFixed(2);
-            document.getElementById("total").innerHTML = finalCost.toFixed(2) ;
-        }
+        //    document.getElementById("finalInterest").innerHTML = parseFloat(sum).toFixed(2);
+        //    document.getElementById("total").innerHTML = finalCost.toFixed(2) ;
+        //}
             
     }
 
