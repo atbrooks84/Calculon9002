@@ -106,6 +106,7 @@ function calculateResults(e) {
         showError("Too many years. Please enter 50 or less.")
     }
 
+
     let totalInterest = 0;
     let monthlyPayment = (principal) * (interest / 1200) / (1 - (1 + interest / 1200) ** (-months));
     let remainingBalance = principal;
