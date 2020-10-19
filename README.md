@@ -6,9 +6,17 @@ This Loan Calculator app calculates your total monthly payment, interest, total 
 
 This is a front-end only web application built with HTML5, CSS, JavaScript & Bootstrap.
 
-## About
+## Features
 
-This app was made as part of the course provided by Coder Foundry. The goal of this application is take in a loan amount, an interest rate, and a term in either years or months (or a combination of the two) and produce an amortization schedule that shows the number of payments, the amount of each payment, splitting the payment amount between the amount of interest and principal paid each time, and a rolling update for both the total amount of interest paid and the total remaining balance of the original loan. The schedule will also show the total amount of interest paid over the life of the loan as well as the total cost of the loan.
+Looking to take out a loan? Look no further. With this app you can:
+
+* quickly see the big picture with total principal, interest, and cost associated with your loan
+
+* view a graph of your interest and principle over time
+
+* generate an amorization schedule to view the exact month by month preview of your loan
+
+* **Download the complete schedule as Excel or CSV file**
 
 ## Installation
 
