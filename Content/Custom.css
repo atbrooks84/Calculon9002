@@ -124,6 +124,10 @@ input[type="button"]:focus, .btn-dark:focus, .dropdown-menu {
     background-color: #27293d;
 }
 
+.table-container {
+    border: 2px solid #e14eca;
+}
+
 .custom-border {
     border: 2px solid #e14eca;
 }
@@ -293,19 +297,20 @@ input[type="button"]:focus, .btn-dark:focus, .dropdown-menu {
 }
 
 .btn-primary {
-    background-color: #e14eca;
-    border: none;
+    /*    background-color: #9d368d;*/
+    background-color: #1e1e2f;
+    border: 1px solid #e14eca;
     margin: 0;
 }
 
 .btn-primary.active {
-    background-color: #9d368d !important;
-    border: none;
+    background-color: #e14eca !important;
+    border: 1px solid #e14eca !important;
 }
 
 .btn-primary:hover {
-    background-color: #9d368d !important;
-    border: none;
+    background-color: #e14eca !important;
+    border: 1px solid #e14eca !important;
 }
 
 

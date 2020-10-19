@@ -1,4 +1,5 @@
 ﻿Chart.defaults.global.defaultFontColor = 'white';
+Chart.defaults.global.responsive = true;
 
 /*formats any given number to a valid USD currency (i.e. "120000.849284" to "$120,000.85")*/
 const formatter = new Intl.NumberFormat('en-US', {
