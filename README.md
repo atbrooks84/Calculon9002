@@ -40,7 +40,7 @@ git clone https://github.com/atbrooks84/Calculon9002
 
 * Interest Payment = Previous Remaining Balance * rate/1200Principal
 
-* Payment = Total Monthly Payment - Interest PaymentAt end each month
+* Payment = Total Monthly Payment - Interest Payment At end each month
 
 * Remaining Balance = Previous Remaining Balance - principal payments
 

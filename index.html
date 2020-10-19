@@ -12,7 +12,6 @@
     <title>Calculon</title>
 
     <!-- Bootstrap core CSS -->
-    <!-- Bootstrap core CSS -->
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/AdamStyles.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="/Images/favicon.png" />
@@ -20,7 +19,6 @@
     <link href="Content/hamburgers.css" rel="stylesheet">
     <link href="Content/Custom.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
-    <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.1.1/jspdf.umd.min.js"></script>-->
 
 </head>
 
@@ -106,7 +104,9 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">$</span>
                                             </div>
-                                            <input type="number"
+                                            <input type="text"
+                                                   pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$"
+                                                   data-type="currency"
                                                    class="form-control"
                                                    id="principal"
                                                    placeholder="Loan Amount" />
@@ -186,7 +186,7 @@
                                         <input type="button"
                                                onclick="calculateResults();"
                                                value="Calculate"
-                                               class="btn btn-dark" />
+                                               class="btn btn-dark"/>
                                     </div>
                                 </div>
 
@@ -200,7 +200,7 @@
                 <!--Results  Title-->
                 <div class="row text-center">
                     <div class="col-lg-12">
-                        <h1 class="heading display-5 pb-3">Your Monthly Payments</h1>
+                        <h1 id="results" class="heading display-5 pb-3">Your Monthly Payments</h1>
                     </div>
                 </div>
                 <div class="row text-center">
@@ -246,7 +246,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mt-5">
+                    <div class="animate__animated animate__fadeIn row mt-5 hidden-on-mobile">
                         <div class="col-lg-12 text-center">
                             <canvas id="myChart" width="200" height="75"></canvas>
 
@@ -260,7 +260,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="table-container amort-scroll">
-                                <table id="datatable" class="table table-fixed table-responsive-md table-dark">
+                                <table id="datatable" class="animate__animated animate__fadeIn table table-fixed table-responsive-md table-dark">
 
                                     <thead>
                                         <tr>
@@ -289,7 +289,6 @@
                                     </svg>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <!--<a class="animate__animated animate__bounceIn dropdown-item" href="#" id="create_pdf">PDF</a>-->
                                     <a class="animate__animated animate__bounceIn dropdown-item" download="amortization-schedule.xls" href="#" onclick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');">Excel</a>
                                     <a class="animate__animated animate__bounceIn animate__delay-1s small-delay dropdown-item" download="amortization-schedule.csv" href="#" onclick="return ExcellentExport.csv(this, 'datatable');">CSV</a>
                                 </div>
@@ -312,7 +311,8 @@
     <script src="Scripts/custom.js"></script>
 
 
-    <script type="text/javascript">let toggle = false;
+    <script type="text/javascript">
+        let toggle = false;
         document.querySelector('.hamburgerHelper').addEventListener("click", function () {
             toggleSideNav();
         })
@@ -353,7 +353,109 @@
 
             main.classList.remove('open');
             main.classList.add('closed');
-        }</script>
+        }
+
+
+        $("input[data-type='currency']").on({
+            keyup: function () {
+                formatCurrency($(this));
+            },
+            blur: function () {
+                formatCurrency($(this), "blur");
+            }
+        });
+
+
+        // Jquery Dependency
+
+        $("input[data-type='currency']").on({
+            keyup: function () {
+                formatCurrency($(this));
+            },
+            blur: function () {
+                formatCurrency($(this), "blur");
+            }
+        });
+
+
+        function formatNumber(n) {
+            // format number 1000000 to 1,234,567
+
+            return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        }
+
+
+        function formatCurrency(input, blur) {
+            // appends $ to value, validates decimal side
+            // and puts cursor back in right position.
+
+            // get input value
+            var input_val = input.val();
+
+            // don't validate empty input
+            if (input_val === "") { return; }
+
+            // original length
+            var original_len = input_val.length;
+
+            // initial caret position 
+            var caret_pos = input.prop("selectionStart");
+
+            // check for decimal
+            if (input_val.indexOf(".") >= 0) {
+
+                // get position of first decimal
+                // this prevents multiple decimals from
+                // being entered
+                var decimal_pos = input_val.indexOf(".");
+
+                // split number by decimal point
+                var left_side = input_val.substring(0, decimal_pos);
+                var right_side = input_val.substring(decimal_pos);
+
+                // add commas to left side of number
+                left_side = formatNumber(left_side);
+
+                // validate right side
+                right_side = formatNumber(right_side);
+
+                // On blur make sure 2 numbers after decimal
+                if (blur === "blur") {
+                    right_side += "00";
+                }
+
+                // Limit decimal to only 2 digits
+                right_side = right_side.substring(0, 2);
+
+                // join number by .
+                input_val = "$" + left_side + "." + right_side;
+
+            } else {
+                // no decimal entered
+                // add commas to number
+                // remove all non-digits
+                input_val = formatNumber(input_val);
+                input_val = "$" + input_val;
+
+                // final formatting
+                if (blur === "blur") {
+                    input_val += ".00";
+                }
+            }
+
+            // send updated string to input
+            input.val(input_val);
+
+            // put caret back in the right position
+            var updated_len = input_val.length;
+            caret_pos = updated_len - original_len + caret_pos;
+            input[0].setSelectionRange(caret_pos, caret_pos);
+        }
+
+
+
+
+    </script>
 
 </body>
 

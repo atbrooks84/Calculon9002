@@ -82,11 +82,16 @@ function generateGrid(amortizationSchedule) {
 
 /*updates the chart from an amortization schedule*/
 function updateChart(amortizationSchedule) {
-    newLabels = []
-    interestData = []
-    principalData = []
-    
-    for (let i = 0; i < amortizationSchedule.length; i++) {
+    let newLabels = [];
+    let interestData = [];
+    let principalData = [];
+    let simplification = 1;
+
+    if (amortizationSchedule.length > 100) {
+        simplification = Math.floor(amortizationSchedule.length / 100);
+    }
+
+    for (let i = 0; i < amortizationSchedule.length; i += simplification) {
         newLabels.push(amortizationSchedule[i][0])
         interestData.push(amortizationSchedule[i][3].toFixed(2))
         principalData.push(amortizationSchedule[i][2].toFixed(2))
@@ -116,8 +121,7 @@ function updateChart(amortizationSchedule) {
 /*main function, runs all the calculations to produce the amortization schedule*/
 function calculateResults(e) {
     clearError()
-
-    let principal = Number(document.getElementById("principal").value);
+    let principal = Number((document.getElementById("principal").value).replace(/[,$]/g, ''));
     let interest = Number(document.getElementById("interest").value);
     let time = Number(document.getElementById("time").value);
     let extraPayment = Number(document.getElementById('extra-payments').value);
@@ -125,12 +129,18 @@ function calculateResults(e) {
     
 
     if (!principal || !interest || !time) {
-        showError("Please fill out all fields.");
+        showError("Please fill out all required fields.");
         return;
     }
 
     if (document.getElementById('years').classList.contains('active')) {
         time = time * 12;
+    }
+
+    
+    if (principal > 1000000000) {
+        showError("Sorry, loans cannot exceed 1 billion")
+        return
     }
 
     if (time > 600) {
@@ -179,6 +189,10 @@ function calculateResults(e) {
 
     generateGrid(amortizationSchedule);
     updateChart(amortizationSchedule);
+
+    setTimeout(function () {
+        document.getElementById("results").scrollIntoView({ behavior: 'smooth' });
+    }, 100)
 
 }
 

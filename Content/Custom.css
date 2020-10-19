@@ -215,8 +215,13 @@ input[type="button"]:focus, .btn-dark:focus, .dropdown-menu {
     position: fixed;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 768px){
+    .hidden-on-mobile {
+        display: none;
+    }
+}
 
+@media (max-width: 992px) {
     .navbar-wrapper {
         position: relative;
     }
