@@ -17,16 +17,18 @@ a {
     color: white;
 }
 
+.bold {
+    font-weight: 700;
+}
+
 a:hover {
     text-decoration: none;
-/*    text-shadow: 0px 0px 10px white;*/
     color: white;
     font-weight: 700;
 }
 
 .navbar.bg-dark {
     background-color: #1d1e2e !important;
-/*    border-bottom: 2px solid #e14eca;*/
 }
 
 h1 {
@@ -102,9 +104,10 @@ input[type="button"]:focus, .btn-dark:focus, .dropdown-menu {
     color:white;
 }
 
-/*.tag-wrap {
-    filter: drop-shadow(-1px 6px 3px rgba(50, 50, 0, 0.5));
-}*/
+/*speed up the animation delay for these elements*/
+.result {
+    --animate-delay: 0.1s;
+}
 
 .tag {
     background: #e14eca;
@@ -262,3 +265,47 @@ input[type="button"]:focus, .btn-dark:focus, .dropdown-menu {
         padding-right: 1.5rem;
     }
 }
+
+.amort-scroll{
+    width: auto;
+    height: 500px;
+    overflow-y: scroll;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.amort-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+
+#hidden-on-page-load {
+    display: none;
+}
+
+#errorZone {
+    display: none;
+    color: red;
+}
+
+.radio-buttons input {
+    list-style-type: none;
+    display: none;
+}
+
+.btn-primary {
+    background-color: #e14eca;
+    border: none;
+    margin: 0;
+}
+
+.btn-primary.active {
+    background-color: #9d368d !important;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #9d368d !important;
+    border: none;
+}
+
+

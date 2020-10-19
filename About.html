@@ -12,7 +12,6 @@
     <title>Calculon</title>
 
     <!-- Bootstrap core CSS -->
-    <!-- Bootstrap core CSS -->
     <link href="Content/bootstrap.css" rel="stylesheet" />
 
     <link href="Content/AdamStyles.css" rel="stylesheet" />
@@ -55,8 +54,8 @@
                         </span>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
+                <li class="dropright">
+                    <a target="_blank" href="https://github.com/atbrooks84/Calculon9002">
                         <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-code-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
                             <path fill-rule="evenodd" d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0zm2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0z" />
@@ -96,98 +95,99 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <p>
-                            The standard Lorem Ipsum passage, used since the 1500s
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                            As a part of our Coder Foundry curriculum, we have been tasked to design a mortgage calculator to provide an estimate of a monthly mortgage payment. With this application you are able to input the loan amount, interest rate and loan term to calculate the monthly payment.<br />
+                        </p>
+                        <p>
+                            The monthly payment estimates are broken down by principal, interest, total interest and balance over the length of the loan. In addition, the calculator provides a chart symbolizing the decrease in the balance of the loan and interest payments over the length of the loan. Notice the scrolling table will identify each month’s financial outlook that includes Month, Payment, Principal, Interest, Total Interest and Balance. Lastly, a downloadable link has been provided for an excel version of the financial table.<br />
+                        </p>
+                        <p>
+                            The mortgage loan calculator was built by Coder Foundry students:<br>
+                            <br />
                         </p>
                     </div>
                 </div>
                 <div class="row text-center">
-                    <div class="col">
-                        <img src="Images/adam-portrait.jpg" alt="Avatar">
+                    <div class="col img-fluid">
+                        <a href="https://adam-brooks-portfolio-2020.netlify.app/" target="_blank"><img src="Images/Adam Brooks_small_square.jpg" alt="Avatar"></a>
                     </div>
                     <div class="col">
-                        <img src="Images/larry-portrait.jpg" alt="Avatar">
+                        <a href="https://ldalston-portfolio.netlify.app/" target="_blank"><img src="Images/LinkedIn picture.jpg" alt="Avatar"></a>
                     </div>
                     <div class="col">
-                        <img src="Images/josh-portrait.jpg" alt="Avatar">
+                        <a href="https://joshua-peters.netlify.app/" target="_blank"><img src="Images/Josh headshot_small.jpg" alt="Avatar"></a>
                     </div>
                 </div>
-    </div>
+                <div class="row">
 
-    <!-- Bootstrap core JavaScript -->
+                    <div class="col text-center">
+                        <p><span class="bold">Adam Brooks</span><br />Project Manager</p>
+                    </div>
+                    <div class="col text-center">
+                        <p><span class="bold">Larry Alston</span><br />Lead Developer</p>
+                    </div>
+                    <div class="col text-center">
+                        <p><span class="bold">Joshua Peters</span><br />Lead Designer</p>
+                    </div>
+                </div>
+            </div>
 
-    <script src="Scripts/jquery.slim.js"></script>
-    <script src="Scripts/bootstrap.bundle.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+            <!-- Bootstrap core JavaScript -->
+
+            <script src="Scripts/jquery.slim.js"></script>
+            <script src="Scripts/bootstrap.bundle.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
 
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/excellentexport@3.4.3/dist/excellentexport.min.js"></script>
-    <script src="Scripts/Custom.js"></script>
-    <script src="Scripts/AdamScripts.js"></script>
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/excellentexport@3.4.3/dist/excellentexport.min.js"></script>
+            <script src="Scripts/Custom.js"></script>
+            <script src="Scripts/AdamScripts.js"></script>
 
-    <script type="text/javascript">let data = [[1, 2, 3, 4, 5, 6], [6, 5, 4, 3, 2, 20]];
+            <script type="text/javascript">
 
-        function generateGrid(data) {
-            html = "";
-            for (let row = 0; row < data.length; row++) {
-                html += "<tr>";
-                html += `<th scope="row">${data[row][0]}</th>`
-                for (let cell = 1; cell < data[row].length; cell++) {
-                    html += `<td>${data[row][cell]}</td>`
+
+
+                let toggle = false;
+                document.querySelector('.hamburgerHelper').addEventListener("click", function () {
+                    toggleSideNav();
+                })
+
+                function toggleSideNav() {
+                    if (!toggle) {
+                        toggle = true;
+                        openSideNav()
+                    } else {
+                        toggle = false;
+                        closeSideNav();
+                    }
                 }
 
-                html += "</tr>";
-            }
+                function openSideNav() {
+                    toggle = true;
+                    hamburger = document.getElementById('toggle');
+                    sidebar = document.querySelector('.sidebar');
+                    main = document.querySelector('.main');
 
-            document.getElementById("generated").innerHTML = html;
-        }
+                    hamburger.classList.add('is-active');
+                    sidebar.classList.remove('closed');
+                    sidebar.classList.add('open');
 
-        generateGrid(data);
+                    main.classList.remove('closed');
+                    main.classList.add('open');
+                }
 
+                function closeSideNav() {
+                    toggle = false;
+                    hamburger = document.getElementById('toggle');
+                    sidebar = document.querySelector('.sidebar');
+                    main = document.querySelector('.main');
 
+                    hamburger.classList.remove('is-active')
+                    sidebar.classList.remove('open');
+                    sidebar.classList.add('closed');
 
-        let toggle = false;
-        document.querySelector('.hamburgerHelper').addEventListener("click", function () {
-            toggleSideNav();
-        })
-
-        function toggleSideNav() {
-            if (!toggle) {
-                toggle = true;
-                openSideNav()
-            } else {
-                toggle = false;
-                closeSideNav();
-            }
-        }
-
-        function openSideNav() {
-            toggle = true;
-            hamburger = document.getElementById('toggle');
-            sidebar = document.querySelector('.sidebar');
-            main = document.querySelector('.main');
-
-            hamburger.classList.add('is-active');
-            sidebar.classList.remove('closed');
-            sidebar.classList.add('open');
-
-            main.classList.remove('closed');
-            main.classList.add('open');
-        }
-
-        function closeSideNav() {
-            toggle = false;
-            hamburger = document.getElementById('toggle');
-            sidebar = document.querySelector('.sidebar');
-            main = document.querySelector('.main');
-
-            hamburger.classList.remove('is-active')
-            sidebar.classList.remove('open');
-            sidebar.classList.add('closed');
-
-            main.classList.remove('open');
-            main.classList.add('closed');
-        }</script>
+                    main.classList.remove('open');
+                    main.classList.add('closed');
+                }</script>
 
 </body>
 

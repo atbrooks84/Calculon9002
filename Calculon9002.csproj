@@ -71,14 +71,17 @@
     <Content Include="Content\AdamStyles.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\Custom.css" />
+    <Content Include="Images\Adam Brooks.jpg" />
+    <Content Include="Images\Adam Brooks_small.jpg" />
+    <Content Include="Images\Josh headshot_small.jpg" />
+    <Content Include="Images\LinkedIn picture.jpg" />
     <Content Include="index.html" />
-    <Content Include="Scripts\AdamScripts.js" />
+    <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
-    <Content Include="Scripts\Custom.js" />
+    <Content Include="Scripts\utils.js" />
     <Content Include="Scripts\jquery.slim.js" />
     <Content Include="Web.config" />
     <Content Include="Content\Custom %28Josh%29.css" />
-    <Content Include="Scripts\Custom %28Josh%29.js" />
     <Content Include="Images\home.svg" />
   </ItemGroup>
   <ItemGroup>
@@ -95,7 +98,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fonts\" />
-    <Folder Include="Images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
