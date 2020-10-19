@@ -139,4 +139,13 @@ function calculateResults(e) {
 function showError(error) {
     // create error
     document.getElementById("error").innerHTML = error;
+
+    function showResults() {
+        document.getElementById("panel").style.display = "block";
+    }
 }
+
+function showResults() {
+    document.getElementById("panel").style.display = "block";
+}
+

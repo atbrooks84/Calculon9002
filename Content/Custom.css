@@ -278,4 +278,6 @@ input[type="button"]:focus, .btn-dark:focus, .dropdown-menu {
         display: none;
     }
 
-
+#panel {
+    display: none;
+}
