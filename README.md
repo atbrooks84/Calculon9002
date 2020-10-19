@@ -1,22 +1,24 @@
 # Calculon - A Loan Calculator Web App
 
-This Loan Calculator app calculates your total monthly payment, interest, total interest, and uses that to generate an amortization schedule that you can then download as an Excel or PDF file.
+This Loan Calculator app calculates your total monthly payment, interest, total interest, and [more](#features).
 
 ![Screenshot](/Images/screenshot.png)
 
-This is a front-end only web application built with HTML5, CSS, JavaScript & Bootstrap.
+This is a front-end web application built with HTML5, CSS, JavaScript & Bootstrap.
 
 ## Features
 
-Looking to take out a loan? Look no further. With this app you can:
+### Looking to take out a loan? With this app you can:
 
-* quickly see the big picture with total principal, interest, and cost associated with your loan
+* Quickly see the big picture with total principal, interest, and cost associated with your loan
 
-* view a graph of your interest and principle over time
+* View a graph of your interest and principle over time
 
-* generate an amorization schedule to view the exact month by month preview of your loan
+* Generate an amorization schedule to view the exact month by month payments & interest of your loan
 
 * **Download the complete schedule as Excel or CSV file**
+
+* Preview your loan with extra monthly payments and a deposit
 
 ## Installation
 
@@ -30,7 +32,7 @@ git clone https://github.com/atbrooks84/Calculon9002
 
 ## Core Formulas
 
-These are the core math formulas used to generate the amortization schedule
+### These are the core math formulas used to generate the amortization schedule
 
 * Total Monthly Payment = (amount loaned) * (rate/1200) / (1 – (1 + rate/1200)(-Number of Months) )
 
