@@ -73,6 +73,7 @@
     <Content Include="Content\Custom.css" />
     <Content Include="Images\Adam Brooks.jpg" />
     <Content Include="Images\Adam Brooks_small.jpg" />
+    <Content Include="Images\Josh headshot_small.jpg" />
     <Content Include="Images\LinkedIn picture.jpg" />
     <Content Include="index.html" />
     <Content Include="Scripts\AdamScripts.js" />
