@@ -24,15 +24,15 @@ git clone https://github.com/atbrooks84/Calculon9002
 
 These are the core math formulas used to generate the amortization schedule
 
-*Total Monthly Payment = (amount loaned) * (rate/1200) / (1 – (1 + rate/1200)(-Number of Months) )
+* Total Monthly Payment = (amount loaned) * (rate/1200) / (1 – (1 + rate/1200)(-Number of Months) )
 
-*Remaining Balance before the very first month equals the amount of the loan.
+* Remaining Balance before the very first month equals the amount of the loan.
 
-*Interest Payment = Previous Remaining Balance * rate/1200Principal
+* Interest Payment = Previous Remaining Balance * rate/1200Principal
 
-*Payment = Total Monthly Payment - Interest PaymentAt end each month
+* Payment = Total Monthly Payment - Interest PaymentAt end each month
 
-*Remaining Balance = Previous Remaining Balance - principal payments
+* Remaining Balance = Previous Remaining Balance - principal payments
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
