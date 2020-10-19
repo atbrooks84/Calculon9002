@@ -124,8 +124,8 @@ function calculateResults(e) {
     let principal = Number((document.getElementById("principal").value).replace(/[,$]/g, ''));
     let interest = Number(document.getElementById("interest").value);
     let time = Number(document.getElementById("time").value);
-    let extraPayment = Number(document.getElementById('extra-payments').value);
-    let deposit = Number(document.getElementById('deposit').value)
+    let extraPayment = Number((document.getElementById('extra-payments').value).replace(/[,$]/g, ''));
+    let deposit = Number((document.getElementById('deposit').value).replace(/[,$]/g, ''))
     
 
     if (!principal || !interest || !time) {
@@ -155,10 +155,14 @@ function calculateResults(e) {
 
     principal = principal - deposit;
     let totalInterest = 0;
-    const constantMonthlyPayment = (principal) * (interest / 1200) / (1 - (1 + interest / 1200) ** (-time)) + extraPayment;
+    let constantMonthlyPayment = (principal) * (interest / 1200) / (1 - (1 + interest / 1200) ** (-time)) + extraPayment;
     let monthlyPayment = constantMonthlyPayment;
     let remainingBalance = principal;
     let amortizationSchedule = [];
+
+    if (constantMonthlyPayment > principal) {
+        constantMonthlyPayment = principal
+    }
 
     for (let i = 0; remainingBalance > 0; i++) {
         let interestPayment = remainingBalance * (interest / 1200);
@@ -180,10 +184,12 @@ function calculateResults(e) {
 
     let totalCost = totalInterest + principal;
 
+    
+
     document.getElementById('totalPrincipal').innerHTML = formatter.format(principal);
     document.getElementById("totalInterest").innerHTML = formatter.format(totalInterest);
     document.getElementById("totalCost").innerHTML = formatter.format(totalCost);
-    document.getElementById("totalMonthlyPayment").innerHTML = formatter.format(constantMonthlyPayment);
+    document.getElementById("totalMonthlyPayment").innerHTML = formatter.format(amortizationSchedule[0][1]);
 
     showResults()
 
