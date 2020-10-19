@@ -46,3 +46,7 @@ git clone https://github.com/atbrooks84/Calculon9002
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## Portfolios
+
+Get in touch with the team! [Adam](https://adam-brooks-portfolio-2020.netlify.app/), [Joshua](https://joshua-peters.netlify.app/), [Larry](https://ldalston-portfolio.netlify.app/)
